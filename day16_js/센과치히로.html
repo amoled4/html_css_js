@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bg,.gaonashi{
+            position: absolute;
+            width: 50%;
+            height: 50%;
+            top: 0;
+            left: 0;
+        }
+        .bg{
+            background-image: url(/image/센2.jpg);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            /* z-index: 100; */
+            opacity: 1;
+        }
+        .gaonashi{
+            animation-name: white;
+            animation-duration: 7s;
+            /* width: 800px; */
+            /* height: auto; */
+            margin-left: 100px;
+            margin-top: 26px;
+        }
+
+        @keyframes white{
+            form{
+                opacity: 1;
+            }
+            50%{
+                opacity: 0;
+            }
+            to{
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg"></div>
+    <div class="gaonashi">
+        <img src="/image/가오나시.png" alt="">
+    </div>
+</body>
+</html>

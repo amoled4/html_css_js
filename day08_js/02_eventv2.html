@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>글자색 바꾸기</title>
+    <style>
+        .java{
+            color: red;
+            font-size: 50px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="heading" class="">javascript</h1>
+    <h3 id="main">위의 글자를 클릭해 보세요</h3>
+    <h3 id="text">아악!!!!!!!!!!!!!!!!!!</h3>
+    <h3 id="text1">집에 가고 싶다</h3>
+
+    <script>
+        let heading = document.getElementById('heading');
+        heading.onclick = function(){
+            // heading.style.color='red';
+            // heading의 class 리스트에 java가 있으면 빼고, 없으면 넣고
+            heading.classList.toggle('java');
+        }
+
+        let main = document.querySelector('#main');
+        main.onclick = function(){
+            main.style.setProperty('font-size',"30px");  // css스타일 속성 변경
+        }
+
+        let text = document.getElementById('text');
+        text.onclick = function(){
+            text.style.color='red';
+            text.style.setProperty('font-size','50px');
+        }
+
+        let text1 = document.querySelector('#text1');
+        text1.onclick = function(){
+            text1.style.color='green';
+            text1.style.setProperty('font-size','100px');
+            text1.style.setProperty('text-weight', '700');
+            text1.style.setProperty('font-style', 'italic');
+
+        }
+
+    </script>
+</body>
+</html>

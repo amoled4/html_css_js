@@ -1,0 +1,223 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css");
+
+
+@font-face {
+    font-family: 'ONE Mobile Light';
+    src: url(/font/ONE\ Mobile\ Light.ttf);
+}
+*{
+    font-family: 'ONE Mobile Light';
+    
+}
+body{
+    min-width: 900px;
+    background-color: rgba(254, 255, 184, 0.774);
+    margin: 0;
+
+    position: relative;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+ul{
+    list-style: none;
+}
+
+
+
+.navbar{
+    height: 60px;
+    padding: 10px 30px;
+    /* background-color: white; */
+    /* border: 1px solid black; */
+}
+.navbar>a{
+    float: left;
+    height: 60px;
+    line-height: 60px;
+    vertical-align: middle;
+    font-weight: 700;
+    font-size: 20px;
+}
+.navbar>ul{
+    float: right;
+}
+.navbar>ul>li{
+    display: inline;
+    margin-left: 30px;
+    line-height: 30px;
+}
+
+
+.header{
+    /* main-image */
+    width: 100%;
+    height: 500px;
+    background-image: url(/image/배경화면.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    margin: 20px 0;
+}
+
+h1{
+    /* 중간 제목 */
+    margin: 60px 0;
+    font-size: 25px;
+    text-align: center;
+    color: grey;
+}
+.products{
+    /* 그림사이즈 240 마진 20 */
+    width: 760px;
+    padding: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+    text-align: center;
+}
+.products>a{
+    display: block;
+    float: left;
+    margin-right: 20px;
+}
+.products>a:nth-of-type(3n){
+    margin-right: 0;
+}
+.products>a img{
+    width: 240px;
+    height: 240px;
+}
+.products ul{
+    padding: 0;
+    text-align: center;
+    margin-bottom: 100px;
+
+    /* margin: 20px auto 0; */
+}
+.products ul li{
+    font-size: 16px;
+    margin: 5px;
+}
+.products ul li:nth-child(2){
+    font-size: 18px;
+    font-weight: 700;
+}
+.products ul li:hover{
+    text-decoration: underline;
+}
+.footer{
+    clear: both;
+    width: 100%;
+    height: 200px;
+    background-color: rgba(252, 253, 152, 0.774);
+    margin-bottom: 70px;
+}
+.footer>ul{
+    float: left;
+    line-height: 20px;
+    vertical-align: middle;
+    margin-top: 30px;
+    color: gray;
+    font-size: 12px;
+}
+.footer>i{
+    font-size: 30px;
+    float: right;
+    margin: 20px 5px;
+    color: gray;
+    cursor: pointer;
+
+    
+}
+.play{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 70px;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: rgb(54, 54, 54);
+}
+
+.list {
+    float: left;
+    width: 300px;
+    height: 50px;
+}
+.list>img {
+    float: left;
+}
+
+.list>ul{
+    margin: 0;
+    float: left;
+    position: absolute;
+    top: 50%;
+    left: 100px;
+    transform: translate(-50%, -50%);
+    padding-left: 20px;
+}
+
+.icon{
+    float: left;
+    position: absolute;
+    top: 50%;
+    left: 210px;
+    transform: translate(-50%, -50%);
+}
+.icon>i{
+    margin-right: 10px;
+    cursor: pointer;
+    color: gray;
+}
+
+.icon1{
+    float: left;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    
+}
+.icon1 .bi{
+    margin: 0 10px;
+    font-size: 20px;
+    vertical-align: middle;
+    cursor: pointer;
+    color: gray;
+}
+
+
+.icon1 .bi:nth-child(3){
+    font-size: 40px;
+    color: rgb(255, 0, 76);
+    /* vertical-align: middle; */
+}
+
+.list>ul>li:nth-child(1){
+    color: white;
+    font-weight: 700;
+    margin-bottom: 5px;
+    font-size: 15px;
+}
+.list>ul>li:nth-child(2){
+    color: gray;
+    font-size: 12px;
+}
+
+.last {
+    float: right;
+    width: 300px;
+    height: 50px;
+    
+}
+.vol{
+    float: right;
+}
+.icon2{
+    float: right;
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button" id="add1">li Tag 한번에 추가하기</button>
+    <button type="button" id="add2">li Tag 순차적 추가하기</button>
+    <button type="button" id="add3">li Tag 한번에 추가하기</button>
+    <button type="button" id="add4">li Tag 순차적 추가하기</button>
+    <ul id="ul1"></ul>
+    <hr>
+    <ol id="ol1"></ol>
+    <hr>
+    <ul id="ul2"></ul>
+    <hr>
+    <ol id="ol2"></ol>
+
+    <script>
+        let add1 = document.getElementById('add1');  // li Tag 한번에 추가하기
+        let add2 = document.getElementById('add2');  // li Tag 순차적 추가하기
+        let add3 = document.getElementById('add3');  // li Tag 한번에 추가하기(append)
+        let add4 = document.getElementById('add4');  // li Tag 순차적 추가하기(append)
+
+        let ul1 = document.getElementById('ul1');
+        let ol1 = document.getElementById('ol1');
+        let ul2 = document.getElementById('ul2');
+        let ol2 = document.getElementById('ol2');
+
+
+        let arr = ['HTML', 'CSS', 'Javascript', 'SQL'];
+
+        // li Tag 한번에 추가하기
+        add1.addEventListener('click', function(){
+            
+            let print = '';
+            for(let tmp of arr){
+                print += `<li><a href="#">${tmp}</a></li>`;
+            }
+            
+            ul1.innerHTML = print;
+        })
+
+        // li Tag 순차적 추가하기
+        let count = 0;
+        add2.addEventListener('click', function(){
+            if(arr[count] != undefined){
+                console.log(arr[count]);
+                ol1.innerHTML += `<li><a href="#">${arr[count]}</a></li>`;
+                count++;
+            }
+        })
+
+        // li Tag 한번에 추가하기(append)
+        let count2 = 0;
+        add3.addEventListener('click',function(){
+            if(count2 < arr.length){
+                for(let tmp of arr){
+                let li = document.createElement('li');
+                    li.innerHTML = `<a href="#">${tmp}</a>`;
+                    ul2.appendChild(li);
+                    count2++;
+    
+                }
+            }
+        })
+
+        // li Tag 순차적 추가하기(append)
+        let count1 = 0;
+        add4.addEventListener('click',function(){
+            let li = document.createElement('li');
+            if(arr[count1] != undefined){
+                console.log(arr[count1]);
+                li.innerHTML += `<a href="#">${arr[count1]}</a>`;
+                count1++;
+                ol2.appendChild(li);
+            }
+        })
+    </script>
+</body>
+</html>

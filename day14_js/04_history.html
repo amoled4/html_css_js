@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>history 객체</title>
+</head>
+<body>
+    <h1>
+        브라우저가 저장하고 있는 방문 페이지의 기록을 관리하는 객체
+    </h1>
+    <ul>
+        <li>
+            history.back() : 이전 방문 페이지로 이동
+        </li>
+        <li>
+            history.forward() : 다음 방문 페이지로 이동
+        </li>
+        <li>
+            history.go(n) : n번째 페이지로 이동 => -2 : 이전페이지 2단계 전으로 이동
+        </li>
+        <li>
+            브라우저의 저장소를 기반으로 하기 때문에 보안 이슈로 접근방어 해놓는 경우 작동하지 않을 수도 있음
+        </li>
+    </ul>
+    <!-- 
+        a 태그를 이용하여 1페이지(01_setTimeOut.html)로 이동
+        -> 2번 페이지로 -> 3페이지로 이동 -> 4번 페이지로 이동
+     -->
+     <a href="01_setTimeOut.html">page1</a>
+     <a href="02_setInterval.html">page2</a>
+     <a href="03_location.html">page3</a>
+     <a href="04_history.html">page4</a>
+
+     <button type="button" onclick="back1();">back</button>
+     <button type="button" onclick="forward1()">forword</button>
+     <input type="text" id="n">
+     <button type="button" onclick="go1();">go</button>
+
+
+     <script>
+        
+        function back1(){
+            history.back();
+        }
+        function forward1(){
+            history.forward();
+        }
+        function go1(){
+            history.go(parseInt(document.getElementById('n').value));
+        }
+     </script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>검색 button</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+
+        .search_area{
+            position: relative;
+            width: 582px;
+            height: 52px;
+            border: 2px solid #19ce60;
+            border-radius: 2px;
+            
+        }
+        .search{
+            width: 444px;
+            height: 50px;
+            padding: 13px 15px;
+            margin: 1px;
+            box-sizing: border-box;
+            background-color: white;
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 24px;
+            outline: 0;
+            border: 0;
+        }
+        
+        .search_btn{
+            position: absolute;
+            width: 56px;
+
+            background-color: #19ce60;
+            border-radius: 0 2px 2px 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            cursor: pointer;
+            border: 0;
+        }
+
+        .btn{
+            display: inline-block;
+            width: 22px;
+            height: 22px;
+            background-position: -420px -24px;
+            background-repeat: no-repeat;
+            vertical-align: top;
+            color: white;
+           
+            /* margin: -1px;
+            overflow: hidden; */
+        }
+
+        #key{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            display: inline-block;
+            width: 20px;
+            height: 12px;
+            background-position: -398px -267px;
+            background-repeat: no-repeat;
+            vertical-align: top;
+            margin: -6px 0 0 -10px;
+        }
+
+        .btn_keyboard{
+            position: absolute;
+            top: 0;
+            right: 84px;
+            bottom: 10px;
+            width: 36px;
+            z-index: 400;
+
+            color: #bdbdbd;
+        }
+
+        .btn_arr{
+            position: absolute;
+            top: 15px;
+            right: 64px;
+            bottom: 0;
+            width: 22px;
+
+            color: #19ce60;
+        }
+        
+    </style>
+</head>
+<body>
+    <form action="">
+    <div class="search_area">
+        <input type="text" class="search">
+    
+        <button type="submit" class="search_btn">
+            <span class="material-symbols-outlined btn">
+                search
+                </span>
+        </button>
+        
+    
+
+    <a href="#" class="btn_keyboard">
+        <span class="material-symbols-outlined" id="key">
+            keyboard
+            </span>
+    </a>
+
+    <a href="#" class="btn_arr">
+        <span class="material-symbols-outlined" id="arr">
+            arrow_drop_down
+            </span>
+    </a>
+
+</div>      
+</form>
+</body>
+</html>

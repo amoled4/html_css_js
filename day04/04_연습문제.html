@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연습문제</title>
+    <style>
+        .p-box{
+            width: 100%;
+            
+            /* border: 1px solid black; */
+            position: relative;
+        }
+        .box{
+            border: 1px solid black;
+            text-decoration: none;
+            color: black;
+            text-align: center;
+            width: calc(100% / 4);
+            height: 50px;
+            position: absolute;
+            display: inline-block;
+            line-height: 50px;
+            /* box-sizing: border-box; */
+            
+
+        }
+
+        .box:hover{
+            background-color: lightyellow;
+        }
+        .box1{
+            /* border: 1px solid black; */
+            border-right: 0cm;
+        }
+        .box2{
+            /* border: 1px solid black; */
+            left: 25%;
+            border-right: 0cm;
+        }
+        .box3{
+            /* border: 1px solid black; */
+            left: 50%;
+            border-right: 0cm;
+        }
+        .box4{
+            /* border: 1px solid black; */
+            left: 75%;
+        }
+    </style>
+</head>
+<body>
+    <div class="p-box">
+        <a href="#" class="box box1">메뉴1</a>
+        <a href="#" class="box box2">메뉴2</a>
+        <a href="#" class="box box3">메뉴3</a>
+        <a href="#" class="box box4">메뉴4</a>
+    </div>
+</body>
+</html>

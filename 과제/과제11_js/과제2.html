@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>과제</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        h1 {
+            border: 5px solid black;
+            padding: 0px 15px 0px 15px;
+            width: 12%;
+            height: 50px;
+            margin: 50px auto;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        li {
+            display: inline;
+            margin-right: 10px;
+
+        }
+
+        img {
+            margin-top: 50px;
+            width: 50%;
+        }
+
+        li>a {
+            text-decoration: none;
+            color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1> Travel </h1>
+    </div>
+
+    <div>
+        <ul>
+            <!-- <li><a id="home" class="links" onclick="clickCity(this)">Home</a></li>
+            <li><a id="seoul" class="links" onclick="clickCity(this)">Seoul</a></li>
+            <li><a id="tokyo" class="links" onclick="clickCity(this)">Tokyo</a></li>
+            <li><a id="paris" class="links" onclick="clickCity(this)">Paris</a></li> -->
+
+            
+            <li><a id="home" class="links">Home</a></li>
+            <li><a id="seoul" class="links" >Seoul</a></li>
+            <li><a id="tokyo" class="links">Tokyo</a></li>
+            <li><a id="paris" class="links">Paris</a></li>
+        </ul>
+    </div>
+
+    <div>
+        <!-- id랑 이미지파일이름 같아야함 -->
+        <img src="/image/home.jpg" alt="" id="cityImg">
+    </div>
+
+    <script>
+        // const clickCity = (elem) => {
+            // let idVal = elem.id;
+            // // let clsVal = elem.classList[0];
+            // document.getElementById('cityImg').src = `/image/${idVal}.jpg`;
+        // }
+
+
+        document.querySelector('.links').addEventListener('click',function(elem){
+            console.log(elem);
+            let idVal = elem.id;
+            document.getElementById('cityImg').src = `/image/${idVal}.jpg`;
+        })
+
+
+    </script>
+
+</body>
+
+</html>

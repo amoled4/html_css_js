@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Count 만들기</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <style>
+        div{
+            display: flex;
+            align-items: center;
+        }
+        button{
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+        button 2개를 준비
+        + => 값이 1씩 증가, - => 값이 1씩 감소
+     -->
+     <div class="btn">
+    
+        <input type="number" id="num" value="0" disabled style="height: 30px;">
+    
+        <button type="button" id="up"><span class="material-symbols-outlined">
+                expand_less
+            </span></button>
+        <button type="button" id="down"><span class="material-symbols-outlined">
+                expand_more
+            </span></button>
+    </div>
+
+
+    <script>
+        let up = document.getElementById('up');
+        let down = document.getElementById('down');
+        let num = document.getElementById('num');
+
+        up.addEventListener('click', function () {
+            num.value = parseInt(num.value) + 1;
+
+        })
+        down.addEventListener('click', function () {
+            if (num.value > 0) {
+                num.value -= 1;
+
+            }
+        })
+    </script>
+</body>
+
+</html>

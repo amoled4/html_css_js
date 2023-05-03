@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/9f450c3a79.js" crossorigin="anonymous"></script>
+    <style>
+        @keyframes moveText{
+            0%{
+                bottom: 0;
+            }
+            10%{
+                left: 40px;
+                bottom: 30px;
+            }
+            20%{
+                left: 40px;
+                bottom: 0;
+            }
+
+            30%{
+                left: 80px;
+                bottom: 30px;
+            }
+            40%{
+                left: 80px;
+                bottom: 0;
+            }
+            50%{
+                left: 120px;
+                bottom: 100px;
+            }
+            60%{
+                left: 120px;
+                bottom: 0;
+            }
+            70%{
+                left: 160px;
+                bottom: 50px;
+            }
+            80%{
+                left: 160px;
+                bottom: 0;
+            }
+            90%{
+                left: 200px;
+                bottom: 30px;
+            }
+            100%{
+                left: 200px;
+                bottom: 0;
+            }
+        }
+        
+        body{
+            background-image: url(/image/바다1.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+
+        }
+        .fish{
+            
+            position: absolute;
+            
+            width: 300px;
+            height: auto;
+
+            animation-name: moveText;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+        }
+    </style>
+</head>
+<body>
+    <img src="/image/pngegg.png" alt="" class="fish">
+</body>
+</html>

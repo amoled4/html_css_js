@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON</title>
+
+</head>
+
+<body>
+    <h1>
+        JSON : JavaScript Object Notation, 자바스크립트 객체 표기법
+    </h1>
+    <ul>
+        <li>
+            데이터 요청 및 응답처리에 필요한 데이터의 표준 형식을 제공하는 타입
+        </li>
+        <li>
+            백엔드(서버) 언어의 종류에 상관없이 데이터 송수신 단일 형식으로 통일
+        </li>
+        <li>
+            데이터의 전송은 전부 String 타입으로 이루어짐
+        </li>
+        <li>
+            서버로 데이터를 보낼 때 > json to string > JSON.stringify(jsObject)
+        </li>
+        <li>
+            서버로부터 데이터를 받을 때 > string to json > JSON.parse(stringData);
+        </li>
+    </ul>
+    <script>
+        // for of : 배열
+        // for in : 객체
+
+        // 문자열 데이터
+        const stringData = '{"id":"1234","type":"donut","name":"cake",' +
+            '"image":{"url":"img/0001.jpg","width":"200","height":"200"},' +
+            '"thumbnail":{"url":"img/thumbnail/0001.jpg","width":"20","height":"20"}}';
+
+        // 객체로 변환
+        let parseData = JSON.parse(stringData);
+        console.log(parseData);
+
+        // console에 key : value 형식으로 출력해보기
+        for (const iter in parseData) {
+            if (iter == "image") {
+                for (const iter2 in parseData.image) {
+                    console.log(`${iter} - ${iter2} : ${parseData.image[iter2]}`);
+                }
+            } else if (iter == "thumbnail") {
+                for (const iter3 in parseData.thumbnail) {
+                    console.log(`${iter} - ${iter3} : ${parseData.thumbnail[iter3]}`);
+                }
+            } else {
+                console.log(`${iter}: ${parseData[iter]}`);
+            }
+
+        }
+
+        // 다른 방법
+        for (const iter in parseData) {
+            if (iter == "image" || iter == "thumbnail") {
+                // 한번 더 객체에 접근
+                let innerObject = parseData[iter];    // image: {..}
+                for (const iter2 in innerObject) {
+                    console.log(`${iter} - ${iter2} : ${innerObject[iter2]}`);
+                }
+            }
+            else {
+                console.log(`${iter}: ${parseData[iter]}`);
+            }
+        }
+
+        console.log('--------------------------');
+        const myInfoData = {
+            "name":"kim",
+            "age":"30",
+            "email":"1234@naver.com",
+            "major": {
+                "m1":"java",
+                "m2":"html",
+                "m3":"css"
+            },
+        }
+
+        // 문자열로 변환 JSON.stringify() 콘솔에 타입과 내용
+        let stringifyData = JSON.stringify(myInfoData);
+        console.log(stringifyData);
+        console.log(typeof stringifyData);
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나이구하기</title>
+</head>
+<body>
+    이름 : <input type="text" id="name"> <br>
+    주민번호 : <input type="text" id="rNum"> <br>
+    <button type="button" onclick="printAge();">확인</button>
+
+    <h3 id="result">
+        <!-- 이름, 생년월일, 성별, 나이 -->
+    </h3>
+
+    <script>
+
+        // 날짜 함수
+        let now1 = new Date();
+        console.log(now1);
+        let a = now1.getFullYear() // 오늘 날짜의 년도
+        console.log(a);
+        console.log(now1.getMonth()+1);  // 0~11월 +1
+        console.log(now1.getDate());     // 일을 반환 1~31
+        console.log(now1.getDay());      // 요일 반환 0(일)~6(토)
+        // getHours(), getMinutes(), getSeconds()
+
+        let today = now1.toLocaleDateString();   // 현재 날짜 형태로 반환
+        let time = now1.toLocaleTimeString();    // 현재 시간 형태로 반환
+        let datetime = now1.toLocaleString();    // 현재 날짜,시간 형태로 반환
+
+
+
+
+        // 나이구하기
+        function printAge() {
+            let name = document.getElementById('name').value;
+            let rNum = document.getElementById('rNum').value;
+            let now = new Date();
+            let nowYear = now.getFullYear();    // 현재 년도 네자리 가져오기
+            let age; 
+            let sex;
+            let birth = rNum.substring(0,rNum.indexOf('-'));   // 생년월일
+            let gender = rNum.substring(0,2);                  // 생년 두자리
+            let genType = rNum.charAt(rNum.indexOf('-')+1);    // 주민번호 뒷 한자리
+
+            gender = parseInt(gender);
+            // age = parseInt(age);
+            
+            // 나이 구하기
+            if(genType == '1' || genType == '2'){
+                age = nowYear - (1900 + gender) +1;
+            } else if(genType == '3' || genType == '4'){
+                age = nowYear - (2000 + gender) +1;
+            }
+
+            // 성별 구하기
+            if(genType == '1' || genType == '3') {
+                sex = '남자';
+            } else if(genType == '2' || genType == '4'){
+                sex = '여자';
+            }
+
+            let result = document.getElementById('result');
+            let print = `이름 : ${name} <br>
+                         생년월일 : ${birth} <br>
+                         성별 : ${sex} <br>
+                         나이 : ${age}`;
+            
+            result.innerHTML = print;
+            
+            
+        }
+    </script>
+</body>
+</html>

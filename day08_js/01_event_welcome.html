@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>welcome</title>
+</head>
+<body>
+    <h1>어서오세요~</h1>
+    <h3 id="welcome" style="color: seagreen;">
+
+    </h3>
+
+    <script>
+        let name = prompt('이름을 입력해 주세요.');
+        console.log(name);
+        document.getElementById('welcome').innerText = `${name}님 반갑습니다.`;
+
+
+        
+        confirm('123456');  // 확인(true) / 취소(false)
+        alert('123456');    // 확인
+    </script>
+</body>
+</html>

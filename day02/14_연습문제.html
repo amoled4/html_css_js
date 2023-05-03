@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>선택자 연습문제</title>
+    <style>
+        a{
+            text-decoration: none;
+            font-weight: 600;
+            font-style: italic;
+        }
+        #test1>a{
+            font-size: 50px;
+            color: green;
+            background-color: yellow;
+        }
+        #test2>a{
+            font-size: 100px;
+            color: red;
+            background-color: green;
+        }
+        #test3>a{
+            font-size: 200px;
+            color: blue;
+            background-color: slateblue;
+        }
+        #test2>a:hover{
+            color: blue;
+        }
+        #test3>a:hover{
+            color: red;
+        }
+        #test1{
+            
+        }
+        #test2{
+            
+        }
+        #test3{
+            
+        }
+
+
+        li{
+            font-size: 50px;
+            
+        }
+        li:nth-child(2n){
+            color: red;
+        }
+        li:nth-child(3n){
+            color: green;
+        }
+
+        li:first-child, li:last-child{
+            font-weight: 700;
+            background-color: aqua;
+        }
+
+        li::after{
+            content: "번째";
+        }
+
+        li::before{
+            content: "li태그 
+            ";
+        }
+
+        
+    </style>
+</head>
+<body>
+    <!-- 
+        div 3개를 만들어
+        naver  google   daum 사이트로 연결
+        naver는 초록색, google, daum의 글자색과 모양을 달리 스타일 주기
+
+        a tag는 링크를 클릭했는지에 따라서 글꼴 색이 달라지는 태그
+        가상선택자(의사선택자)
+        a:active(클릭할 때 색)    a:visited(링크를 눌러본 후 색)
+        a:link(방문 전 색)
+     -->
+     <div id="test1">
+        <a href="http://www.naver.com" target="_blank">naver</a>
+     </div><br>
+     <div id="test2">
+        <a href="http://google.com" target="_blank">google</a>
+     </div><br>
+     <div id="test3">
+        <a href="http://www.daum.net" target="_blank">daum</a>
+     </div>
+
+     <!-- 
+        전체 글자크기, 굵기 크기
+        짝수 : 빨간색
+        3,6,9 : 초록색
+        1, 10 : 굵게 설정
+      -->
+     
+     <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+     </ul>
+</body>
+</html>

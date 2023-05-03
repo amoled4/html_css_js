@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            text-align: center;
+            font-family: 'Noto Serif KR', serif;
+        }
+
+        form {
+            width: 100%;
+            height: 120px;
+            background-color: rgb(185, 226, 252);
+            margin: 0 auto;
+        }
+
+        img {
+            width: 70px;
+            /* height: auto; */
+            /* margin-top: 25px; */
+            margin-top: 25px;
+            display: block;
+            float: left;
+            padding-left: 50px;
+            padding-right: 20px;
+        }
+
+        input {
+            margin: 35px auto;
+            border: 0;
+            width: 70%;
+            height: 50px;
+            font-size: 20px;
+            padding-left: 10px;
+            float: left;
+        }
+
+        .addBtn {
+            width: 60px;
+            height: 50px;
+            border: 0;
+            margin-left: 30px;
+            cursor: pointer;
+            margin: 35px auto;
+            float: left;
+        }
+
+        h1 {
+            font-size: 30px;
+        }
+
+        li:nth-child(2n) {
+            background-color: rgb(230, 230, 230);
+        }
+
+        ul {
+
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            content: "";
+            display: block;
+            clear: both;
+            float: left;
+            list-style: none;
+            text-align: left;
+            line-height: 70px;
+            font-size: 20px;
+            width: 100%;
+            height: 70px;
+            margin: 0;
+            padding-left: 50px;
+        }
+
+        .close {
+            font-size: 20px;
+            float: right;
+            padding-right: 70px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wapper">
+        <h1>여행 준비물 점검 목록</h1>
+        <form>
+            <img src="/image/무민.png" alt="">
+            <input type="text" id="item" autofocus="true">
+            <button type="button" id="add" class="addBtn">추가</button>
+        </form>
+    </div>
+
+    <div>
+        <ul id="itemList"></ul>
+    </div>
+
+    <script>
+        //추가 버튼
+        let addBtn = document.getElementById('add');
+        // 출력하는 곳
+        let printText = document.getElementById('itemList');
+        // 인풋박스 
+        let item = document.getElementById('item');
+        // X 버튼
+        // let close = document.querySelector('.close');
+
+        console.log(item.value);
+
+        let count = 0;
+
+        // 추가버튼 클릭시
+        addBtn.addEventListener('click', function () {
+            let addList = `<li>${item.value}`;
+
+            addList += `<span class="close" id="${count}" onclick="close1(this);">X</span></li>`;
+            printText.innerHTML += addList;
+
+            count++;
+            item.value = '';
+            item.focus();  // 추가 이후에도 인풋박스에 커서 깜빡임
+            
+            
+        })
+
+        // X버튼 누르면 없어짐
+        function close1(c) {
+            // console.log(typeof c);
+            // console.log(c);
+            // console.log(typeof c.parentElement);
+            c.parentElement.remove();
+
+        }
+    </script>
+</body>
+
+</html>

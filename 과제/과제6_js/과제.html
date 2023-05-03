@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" id="myScore">
+        <fieldset>
+            <legend>점수</legend>
+            이름 : <input type="text" id="name"> <br>
+            국어 : <input type="number" id="kor"> <br>
+            영어 : <input type="number" id="eng"> <br>
+            수학 : <input type="number" id="math"> <br>
+            <button type="button" onclick="printScore()" >계산</button>
+        </fieldset>
+    </form>
+    <ol id="ol" style="list-style: none;" ></ol>
+
+    <script>
+        function printScore(){
+            // input 창에 입력된 값은 string으로 입력됨
+            let name = document.getElementById('name').value;
+            let kor = document.getElementById('kor').value;
+            let eng = document.getElementById('eng').value;
+            let math = document.getElementById('math').value;
+
+            // if문을 이용하여 점수가 0 미만, 100 이상이면 alert창을 띄워 잘못된 값이라고 안내
+            if(kor>100 || eng >100 || math>100){
+                alert('점수가 100점 이상입니다. 다시 입력해 주세요.');
+                document.getElementById('name').value = '';
+                document.getElementById('kor').value = '';
+                document.getElementById('eng').value = '';
+                document.getElementById('math').value = '';
+            } else if(kor<0 || eng <0 || math<0){
+                alert('점수가 0점 미만입니다. 다시 입력해 주세요.')
+            }
+            
+            
+            // 형변환
+            kor = parseInt(kor);
+            eng = parseInt(eng);
+            math = parseInt(math);
+            
+            let sum = kor + eng + math;
+            let avg = sum / 3;
+            let avg2 = Math.round(avg);  // 정수 단위로 반올림
+            let pf;
+            
+            if(avg2>=60){
+                // document.getElementById('ol').innerText = 'pass';
+                // score += `<li>합격 여부 : PASS</li>`
+                pf = 'PASS';
+            } else {  
+                pf = 'FAIL';
+            };
+            
+            //화면에 출력
+            let ol = document.getElementById('ol');
+            let score = `<li>이    름 : ${name}</li>
+                         <li>국어 점수 : ${kor}</li>
+                         <li>영어 점수 : ${eng}</li>
+                         <li>수학 점수 : ${math}</li>
+                         <li>합    계  : ${sum}</li>
+                         <li>평    균  : ${avg2}</li>
+                         <li><i>합   격 : ${pf}</li>`;
+                        
+            ol.innerHTML = score;
+
+
+            
+        }
+
+        
+
+    </script>
+</body>
+</html>

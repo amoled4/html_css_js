@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik+Puddles&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Rubik Puddles', cursive;
+            background-image: url(/image/곰돌이배경화면.jpeg);
+            /* background-position: center; */
+            background-repeat: no-repeat;
+            /* background-color: rgb(187, 4, 4); */
+        }
+
+        header {
+
+            text-align: center;
+            height: 150px;
+            margin-top: 50px;
+        }
+
+
+
+        section {
+            width: 1200px;
+            margin: auto;
+            /* padding-left: 40px; */
+            margin-top: 50px;
+            padding-left: 70px;
+            box-sizing: border-box;
+        }
+
+        section::after {
+            content: "";
+            clear: both;
+            display: block;
+        }
+
+        article {
+            float: left;
+            /* width: calc(100% / 3); */
+            /* margin: 50px 20px; */
+            line-height: 20px;
+            margin-right: 40px;
+            margin-top: 100px;
+            /* box-sizing: border-box; */
+        }
+
+        h1,
+        h2 {
+            font-weight: 700;
+            font-style: italic;
+        }
+
+        h1 {
+            font-size: 60px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+        https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json
+     -->
+    <header></header>
+    <section></section>
+
+    <script>
+
+        let header = document.querySelector('header');
+        let section = document.querySelector('section');
+
+        fetch('https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json')
+            .then(resp => resp.json())
+            .then(json => print1(json));
+
+
+        function print1(obj) {
+            let h = document.createElement('h1');
+            h.innerText = obj['squadName'];
+            header.appendChild(h);
+
+            let p = document.createElement('p');
+            p.innerText = 'Hometown: ' + obj['homeTown'] + ' // Formed: ' + obj['formed'];
+            header.appendChild(p);
+
+            print2(obj);
+        }
+
+        function print2(obj) {
+            let heroes = obj['members'];
+
+            for (let i = 0; i < heroes.length; i++) {
+                let members = heroes[i];
+
+                let article = document.createElement('article');
+                let h2 = document.createElement('h2');
+                let p1 = document.createElement('p');
+                let p2 = document.createElement('p');
+                let p3 = document.createElement('p');
+                let ul = document.createElement('ul');
+
+                h2.innerHTML = members['name'];
+                p1.innerHTML = `secretIdentity: ${members['secretIdentity']}`;
+                p2.innerHTML = `Age: ${members['age']}`;
+                p3.innerText = 'Superpower:';
+
+                let powers = members['powers'];
+                // console.log(powers)
+                for (let i = 0; i < powers.length; i++) {
+                    let power = powers[i];
+                    // console.log(powers[i]s)
+                    let li = document.createElement('li');
+                    li.innerHTML = `<li>${power}</li>`;
+                    ul.appendChild(li);
+                }
+
+                section.appendChild(article);
+                article.appendChild(h2);
+                article.appendChild(p1);
+                article.appendChild(p2);
+                article.appendChild(p3);
+                article.appendChild(ul);
+
+            }
+        }
+    </script>
+</body>
+
+</html>

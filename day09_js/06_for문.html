@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for 반복문</title>
+</head>
+<body>
+    <h1>
+        java랑 같은 형식으로 사용가능
+    </h1>
+    <ul>
+        <li>
+            for(초기값; 조건식; 증감식) { code; }
+        </li>
+        <li>
+            for(let i=0; i < 10; i++){code;}
+        </li>
+        <li>
+            향상된 for문
+        </li>
+        <li>
+            for of : for(let value of Array) {code;} => 배열 안의 내용 탐색
+        </li>
+        <li>
+            for in :  for(let value in Object) {code;} => 객체 안의 내용 탐색
+        </li>
+    </ul>
+    
+    <h3>
+        가위바위보 게임 10게임 승률 출력해보기
+    </h3>
+    <button type="button" id="btn">승률 출력</button>
+    <h3>
+        10게임 승률은 <span id="result"></span> %입니다.
+    </h3>
+    <script>
+        // 가위 바위 보는 com => 랜덤, player => 랜덤
+        document.getElementById('btn').addEventListener('click', function(){
+            // 승, 패, 무 횟수를 저장하는 변수
+            let win = 0;  
+            let draw = 0;
+            let lose = 0;
+
+            for(let i=0; i<10; i++){
+                let me = Math.floor(Math.random()*3);  // 0 1 2 가위 바위 보
+                let com = Math.floor(Math.random()*3);
+                // switch 또는 if문을 활용하여 승/패/무의 횟수 증가
+                if(com==0){
+                    if(me==0){
+                        draw++;
+                    } else if(me==1){
+                        win++;
+                    } else if(me==2){
+                        lose++;
+                    }
+                }
+                if(com==1){
+                    if(me==0){
+                        lose++;
+                    } else if(me==1){
+                        draw++;
+                    } else if(me==2){
+                        win++;
+                    }
+                }
+                if(com==2){
+                    if(me==0){
+                        win++;
+                    } else if(me==1){
+                        lose++;
+                    } else if(me==2){
+                        draw++;
+                    }
+                }
+            }
+            console.log(win);
+            console.log(lose);
+            console.log(draw);
+            // 승률 계산
+            // (승리 / (10-draw)) * 100
+            let rate = (win / (10-draw)) * 100;
+
+            document.getElementById('result').innerText = rate;
+        })
+
+
+
+        
+        // switch로 하는 법
+        // switch(me){
+        //     case 0:
+        //         com == 1? draw++ : com ==2? lose++ : win++;
+        //         break;
+        //         .....
+        // }
+
+
+
+
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lotto 생성</title>
+</head>
+
+<body>
+    <h1>
+        1~45까지의 중복되지 않는 숫자 6개를 랜덤으로 추출 => 출력
+        set 객체를 사용하여 생성
+    </h1>
+    <button type="button" id="randomNum">랜덤번호 6개 생성(출력)</button>
+    <h1 id="printNum"></h1>
+    <button type="button" id="lottoNum">당첨번호 7개(마지막번호는 보너스번호) 출력</button>
+    <h1 id="printLotto"></h1>
+    <button type="button" id="result">결과확인</button>
+    <h1 id="printResult"></h1>
+
+    <script>
+        // 배열 내용 삭제 : splice(index, count) => index위치부터 count 개수만큼 삭제
+        // 배열 내용 삭제 : splice(index, count, item) => index위치부터 count 개수만큼 삭제 후 item 삽입
+
+        let randomNum = document.getElementById('randomNum');
+        let printNum = document.getElementById('printNum');
+        let lottoNum = document.getElementById('lottoNum');
+        let printLotto = document.getElementById('printLotto');
+        let result = document.getElementById('result');
+        let printResult = document.getElementById('printResult');
+
+        const randomSet = new Set();
+        const lottoSet = new Set();
+        const bonusSet = new Set();
+
+        let randomArray = [];
+        let lottoArray = [];
+
+        let bonusNum = 0;
+        let bonusCheck = false;
+        let count = 0;
+
+        // 랜덤번호 6개 생성 후 배열에 넣기, 출력
+        randomNum.addEventListener('click', function () {
+            printNum.innerHTML = '';
+
+            for (let i = 0; randomSet.size < 6; i++) {
+                let num = Math.floor(Math.random() * 45) + 1;
+                randomSet.add(num);
+            }
+            // randomSet.from() = randomSet;
+            
+            randomSet.forEach(function (value) {
+                randomArray.push(value);
+            })
+            // console.log(randomArray);
+            // console.log(randomSet);
+            for (const iter of randomSet.values()) {
+                printNum.innerHTML += `${iter} `;
+            }
+
+        })
+
+        // 당첨 번호 7개 생성 후 보너스번호만 떼서 배열 넣기, 출력
+        lottoNum.addEventListener('click', function () {
+            printLotto.innerHTML = '';
+            for (let i = 0; lottoSet.size < 7; i++) {
+                let num1 = Math.floor(Math.random() * 45) + 1;
+                lottoSet.add(num1);
+            }
+
+            
+            lottoSet.forEach(function (value) {
+                bonusNum = value;
+            })
+            lottoSet.delete(bonusNum);
+            console.log(bonusNum);
+
+            lottoSet.forEach(function (value) {
+                lottoArray.push(value);
+            })
+
+            // bonusNum = lottoArray.pop();
+
+            for (const iter of lottoSet.values()) {
+                printLotto.innerHTML += `${iter} `;
+            }
+
+            printLotto.innerHTML += `(보너스번호 : ${bonusNum})`;
+
+
+
+        })
+
+        result.addEventListener('click', function () {
+            console.log('아무노래')
+            for (let i = 0; i < 6; i++) {
+                for (let j = 0; j < 6; j++) {
+                    if (randomArray[i] == lottoArray[j]) {
+                        count++;
+                        console.log(count);
+                    }
+                }
+                if (lottoArray[i] == bonusNum) {
+                    bonusCheck = true;
+                }
+            }
+
+            switch (count) {
+                case 6:
+                    printResult.innerHTML = `1등입니다.`;
+                    break;
+                case 5:
+                    if (bonusCheck = true) {
+                        printResult.innerHTML = `2등입니다.`;
+                        break;
+                    } else {
+                        printResult.innerHTML = `3등입니다.`;
+                        break;
+                    }
+                case 4:
+                    printResult.innerHTML = `4등입니다.`;
+                    break;
+                case 3:
+                    printResult.innerHTML = `5등입니다.`;
+                    break;
+                default:
+                    printResult.innerHTML = `<span style="color:red">꽝입니다.</span>`;
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        input 파일에 파일명.확장자 입력하여 전송버튼을 누르면
+        이미지 파일인지 검사하여 
+        이미지 파일이면 '정상파일입니다.'
+        이미지 파일이 아니면 '이미지 파일만 가능합니다.' 라고 출력하기
+        이미지 파일 : jpg, png, jpeg, gif
+        - 대소문자 구분 없이 판단 가능해야 함
+     -->
+    파일명 : <input type="text" id="fileName">
+    <button type="button" id="subBtn">전송</button>
+    <h3 id="result"></h3>
+
+    <script>
+        // 선생님
+        // function imagFileValid(image){
+        //     let imagFileValid = image.toLowerCase();
+
+        //     return imagFileValid.endsWith('png') ? true
+        //     : imagFileValid.endsWith('jpg') ? true 
+
+        // }
+
+        document.getElementById('subBtn').addEventListener('click',function(){
+
+            let fileName = document.getElementById('fileName').value;
+            let str = fileName.substring(fileName.indexOf('.')+1).toLowerCase();
+   
+            
+            if(str == 'jpg' || str == 'png' || str == 'jpeg' || str == 'gif'){
+                document.getElementById('result').innerText = `정상 파일입니다.`;
+            } else{
+                document.getElementById('result').innerText = `이미지 파일만 가능합니다.`;
+            }
+
+        })
+    </script>
+</body>
+</html>

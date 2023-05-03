@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연습문제</title>
+    <style>
+        .p-box{
+            position: relative;
+            width: 300px;
+            height: 500px;
+            border: 1px solid black;
+
+        }
+        .text1{
+            position: absolute;
+            width: 90%;
+            height: 70px;
+            border: 3px solid black;
+            top: 20px;
+            left: 10px;
+            text-align: center;
+            line-height: 70px;
+            font-size: 30px;
+            font-weight: 700;
+
+        }
+
+        .box{
+            position: absolute;
+            border: 3px solid black;
+            width: 90%;
+            height: 295px;
+            top: 100px;
+            left: 10px;
+        }
+
+        .red, .green, .blue{
+            width: 100px;
+            height: 100px;
+            box-shadow: 5px 5px 3px 3px rgba(216, 216, 216, 0.336) inset;
+        }
+
+        .red{
+            background-color: red;
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            z-index: 3;
+
+        }
+        .green{
+            background-color: green;
+            position: absolute;
+            top: 80px;
+            left: 80px;
+            z-index: 2;
+        }
+        .blue{
+            background-color: blue;
+            position: absolute;
+            top: 120px;
+            left: 120px;
+            z-index: 1;
+        }
+
+        .text2{
+            position: absolute;
+            width: 90%;
+            height: 70px;
+            border: 3px solid black;
+            bottom: 20px;
+            left: 10px;
+            text-align: center;
+            line-height: 70px;
+            font-size: 30px;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div class="p-box">
+        <div class="text1">텍스트</div>
+        <div class="box">
+            <div class="red"></div>
+            <div class="green"></div>
+            <div class="blue"></div>
+        </div>
+        <div class="text2">텍스트</div>
+    </div>
+</body>
+</html>
